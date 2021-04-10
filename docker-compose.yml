@@ -45,6 +45,7 @@ services:
       WEBPACKER_DEV_SERVER_HOST: 0.0.0.0
     volumes:
       - .:/var/src/app
+      - bundle:/usr/local/bundle
     tty: true
     stdin_open: true
     depends_on:
