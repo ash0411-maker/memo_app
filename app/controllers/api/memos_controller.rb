@@ -7,11 +7,18 @@ class Api::MemosController < ApplicationController
 
   def create
     @memo = Memo.new(memo_params)
+    puts @memo
     if @memo.save
       render :show, status: :created
     else
       render json: @memo.errors, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @memo = Memo.find(params[:id])
+    @memo.destroy
+    render :index
   end
 
   private
